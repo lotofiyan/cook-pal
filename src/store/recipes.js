@@ -56,7 +56,7 @@ const useRecipeStore = create((set) => ({
     try {
       let response;
       if (cuisine === "All") {
-        response = await apis.getPopular(8);
+        response = await apis.getPopular(6);
       } else {
         response = await apis.getRecipesByCuisines(cuisine);
       }

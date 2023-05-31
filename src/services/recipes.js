@@ -13,12 +13,12 @@ const apis = {
 
   getRecipesByCuisines: (cuisine) =>
     apiInstance2(
-      `recipes/complexSearch?sort=popularity&number=8&cuisine=${cuisine}&includeNutrition=true&addRecipeInformation=true`
+      `recipes/complexSearch?sort=popularity&number=6&cuisine=${cuisine}&includeNutrition=true&addRecipeInformation=true`
     ),
 
   getRecommended: () =>
     apiInstance2(
-      `recipes/random?number=8&includeNutrition=true&addRecipeInformation=true`
+      `recipes/random?number=6&includeNutrition=true&addRecipeInformation=true`
     ),
 
   searchCuisines: (ingredients, limitExplore, pageExplore, offset) =>

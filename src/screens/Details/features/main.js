@@ -158,7 +158,7 @@ const Main = ({ id }) => {
         <p className="font-bold font-inter md:text-[36px] text-[24px]">
           You may also like
         </p>
-        <div className="flex flex-wrap justify-between gap-4">
+        <div className="flex flex-wrap justify-around gap-4">
           {similarRecipes &&
             similarRecipes?.map((item) => {
               return (

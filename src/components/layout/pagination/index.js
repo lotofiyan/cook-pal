@@ -11,7 +11,7 @@ const Pagination = ({ pageCount, onPageChange, currentPage }) => {
           className="flex flex-wrap items-center sm:justify-center justify-end gap-y-2"
           pageClassName="mx-2 w-7 flex justify-center items-center cursor-pointer text-black font-medium"
           containerClassName=""
-          activeClassName="border bg-green rounded-full aspect-square w-7 text-[#ffffff]"
+          activeClassName="border bg-green rounded-full aspect-square w-7 text-white"
           breakLabel=". . ."
           nextLabel="next >"
           previousClassName="text-black hover:border hover:border-[#E2E8F0] hover:text-[#000000] px-3 font-medium"

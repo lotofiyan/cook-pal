@@ -48,7 +48,7 @@ const LazyImage = ({ src, alt, placeholder, className }) => {
             position: "absolute",
             top: 0,
             left: 0,
-            background: "#f0f0f0", // Placeholder background color
+            background: "#bda6a6", // Placeholder background color
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
