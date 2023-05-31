@@ -1,11 +1,8 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  useRoutes,
-  useLocation,
-} from "react-router-dom";
-import { AuthLayout, NonAuthLayout } from "components/layout/pageLayout";
+import { BrowserRouter as Router, useRoutes } from "react-router-dom";
+import { NonAuthLayout } from "components/layout/pageLayout";
 import { PUBLIC_ROUTES } from "./routes";
+import ScrollToTop from "./scrollToTop";
 
 const PublicRouteWrapper = () => {
   const routes = useRoutes(PUBLIC_ROUTES);
@@ -15,11 +12,13 @@ const PublicRouteWrapper = () => {
 const Pages = () => {
   return (
     <Router>
-      {" "}
-      {/* Add the Router component here */}
-      <NonAuthLayout>
-        <PublicRouteWrapper />
-      </NonAuthLayout>
+      <ScrollToTop>
+        {" "}
+        {/* Add the Router component here */}
+        <NonAuthLayout>
+          <PublicRouteWrapper />
+        </NonAuthLayout>
+      </ScrollToTop>{" "}
     </Router>
   );
 };

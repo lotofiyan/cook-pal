@@ -1,19 +1,16 @@
-import React, { useEffect } from "react";
-import useRecipeStore from "store/recipes";
+import React from "react";
+import Banner from "./features/banner";
+import Filter from "./features/filter";
+import Main from "./features/main";
 
 const Home = () => {
-  const {
-    popular_recipes,
-    loading_popular,
-    error_popular,
-    fetchPopularRecipes,
-  } = useRecipeStore();
-
-  useEffect(() => {
-    fetchPopularRecipes(5);
-  }, []);
-
-  return <div>Home</div>;
+  return (
+    <div>
+      <Banner />
+      <Filter />
+      <Main />
+    </div>
+  );
 };
 
 export default Home;

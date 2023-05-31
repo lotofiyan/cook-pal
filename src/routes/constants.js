@@ -3,5 +3,5 @@ export const PUBLIC_PATHS = {
   HOME: "/home",
   EXPLORE: "/explore",
   HELP: "/help",
-  DETAILS: "/meal-details/:meal_code",
+  DETAILS: "/meal-details/:id",
 };

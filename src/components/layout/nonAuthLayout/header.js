@@ -1,16 +1,12 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { ReactComponent as Icon } from "assets/icons/logo.svg";
 import { Button } from "components/common/buttons";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { IoCloseOutline } from "react-icons/io5";
-import { FiArrowUpRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
 
 const Header = () => {
   const location = useLocation();
 
-  const [toggleBtn, setToggleBtn] = useState(false);
   const dashboardLinks = [
     {
       title: "Home",
@@ -34,10 +30,12 @@ const Header = () => {
           setshowModal(false);
         }}
       /> */}
-      <header className="bg-gray-200 md:h-[100px] h-[64px] flex items-center justify-between w-full  ">
-        <div className="flex gap-x-[2px] ">
-          <Icon />
-        </div>
+      <header className="md:h-[100px] h-[64px] flex items-center justify-between w-full  ">
+        <Link to="/">
+          <div className="flex gap-x-[2px] ">
+            <Icon />
+          </div>
+        </Link>
 
         <div className="flex gap-x-5">
           {dashboardLinks.map(({ title, link, url }) => (
@@ -55,7 +53,7 @@ const Header = () => {
 
         <div className="">
           <Button
-            isBlue
+            isGreen
             text={"Sign Up"}
             className="font-poppins font-medium rounded-[8px] px-6 py-4 md:block hidden"
             onClick={() => {}}

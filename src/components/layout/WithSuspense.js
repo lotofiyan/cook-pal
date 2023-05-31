@@ -1,9 +1,9 @@
-import Loader from "components/common/Loader";
+import PageLoader from "components/common/loaders/pageloader";
 import React, { Suspense } from "react";
 
 const WithSuspense = (Component) => (props) =>
   (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<PageLoader size={40} />}>
       <Component {...props} />
     </Suspense>
   );

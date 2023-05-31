@@ -15,7 +15,7 @@ const defaultConfig = { duration: DEFAULT_TOAST_DURATION };
 const ToastLoader = styled.div`
   height: 5px;
   background-color: ${(props) =>
-    props.type == "error"
+    props.type === "error"
       ? "#F97066"
       : props.type === "success"
       ? "#10B981"

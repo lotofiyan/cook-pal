@@ -2,20 +2,73 @@ import { apiInstance2 } from "utils/apiInstance";
 
 const apis = {
   getPopular: (numberOfRecipes) =>
-    apiInstance2(`recipes/popular?number=${numberOfRecipes}`),
+    apiInstance2(
+      `recipes/complexSearch?sort=popularity&includeNutrition=true&addRecipeInformation=true`,
+      {
+        params: {
+          number: numberOfRecipes,
+        },
+      }
+    ),
 
-  sendOtp: (data) =>
-    apiInstance2("internal/send-otp", {
-      method: "POST",
-      body: data,
-      internal: true,
+  getRecipesByCuisines: (cuisine) =>
+    apiInstance2(
+      `recipes/complexSearch?sort=popularity&number=8&cuisine=${cuisine}&includeNutrition=true&addRecipeInformation=true`
+    ),
+
+  getRecommended: () =>
+    apiInstance2(
+      `recipes/random?number=8&includeNutrition=true&addRecipeInformation=true`
+    ),
+
+  searchCuisines: (ingredients, limitExplore, pageExplore, offset) =>
+    apiInstance2(
+      `recipes/complexSearch?sort=popularity&includeNutrition=true&addRecipeInformation=true`,
+      {
+        params: {
+          includeIngredients: ingredients.replace(/,\s*/g, ","),
+          offset: limitExplore * pageExplore,
+          number: pageExplore,
+        },
+      }
+    ),
+
+  getSingleCuisine: (recipeId) =>
+    apiInstance2(`recipes/${recipeId}/information`, {
+      params: {
+        includeNutrition: false,
+        instructionsRequired: true,
+      },
     }),
 
-  verifyOtp: (data) =>
-    apiInstance2("auth/verify", {
-      method: "POST",
-      body: data,
+  getSimilarCuisines: (recipeId) =>
+    apiInstance2(`/recipes/${recipeId}/similar`, {
+      params: {
+        number: 6,
+      },
     }),
+
+  filterCuisines: (
+    limitExplore,
+    pageExplore,
+    minPrepTime,
+    maxPrepTime,
+    diet,
+    type
+  ) =>
+    apiInstance2(
+      `recipes/complexSearch?sort=popularity&includeNutrition=true&addRecipeInformation=true`,
+      {
+        params: {
+          maxReadyTime: maxPrepTime,
+          minReadyTime: minPrepTime,
+          type: type,
+          diet: diet,
+          offset: limitExplore * pageExplore,
+          number: pageExplore,
+        },
+      }
+    ),
 };
 
 export default apis;

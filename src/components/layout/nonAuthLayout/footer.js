@@ -69,7 +69,7 @@ const Footer = () => {
             <Button
               text={"Subscribe"}
               className={"!h-full !w-fit !px-3"}
-              isBlue
+              isGreen
             />
           </div>
         </div>

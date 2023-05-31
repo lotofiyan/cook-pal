@@ -1,3 +1,17 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.banner_gradient {
+  background: linear-gradient(90deg, #252525 -16.65%, rgba(0, 0, 0, 0) 100%);
+}
+.custom-dots {
+  position: absolute;
+  top: 87%; /* Adjust the desired vertical position */
+  left: 50%; /* Adjust the desired horizontal position */
+  transform: translateX(-50%);
+}
+
+.modal-open {
+  overflow: hidden;
+}

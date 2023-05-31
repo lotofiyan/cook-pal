@@ -1,7 +1,14 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import Main from "./features/main";
 
-const index = () => {
-  return <div>index</div>;
+const Index = () => {
+  const { id } = useParams();
+  return (
+    <div>
+      <Main id={id} />
+    </div>
+  );
 };
 
-export default index;
+export default Index;

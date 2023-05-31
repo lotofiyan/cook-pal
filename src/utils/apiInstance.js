@@ -2,13 +2,9 @@
 import axios from "axios";
 import { errorToast } from "components/common/toasts/toast";
 
-function logout() {
-  window.localStorage.clear();
-}
-
 export function apiInstance2(
   endpoint,
-  { method = "GET", data, body, ...customConfig } = {}
+  { method = "GET", data, params, body, ...customConfig } = {}
 ) {
   let url = "";
 
@@ -18,12 +14,11 @@ export function apiInstance2(
     method,
     data: data || body,
     ...customConfig,
+    params,
     headers: {
       ...headers,
       ...customConfig.headers,
-      ...(customConfig.internal && {
-        "x-api-key": process.env.REACT_APP_API_KEY,
-      }),
+      "x-api-key": process.env.REACT_APP_API_KEY,
     },
   };
 
@@ -32,15 +27,15 @@ export function apiInstance2(
   } else {
     url = `${process.env.REACT_APP_API_URL}${endpoint}`;
   }
-
   return axios(url, config)
     .then(async (response) => {
       const data = response.data;
-      if (response.statusText) {
-        return Promise.resolve({
+
+      if (!response.statusText) {
+        return {
           ok: response.statusText,
           ...data,
-        });
+        };
       }
     })
     .catch(async (_err) => {
@@ -50,8 +45,6 @@ export function apiInstance2(
           message = "Bad Request";
           break;
         case 401:
-          logout();
-          window.location.assign(window.location);
           message = "You're not Authenticated. Kindly Login";
           break;
         case 403:
