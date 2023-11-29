@@ -16,7 +16,7 @@ const Main = () => {
         <p className="font-inter text-[#625959] ">{totalExplore}</p>
       </div>
 
-      {exploreCuisines?.length > 0 && (
+      {exploreCuisines?.length > 0? (
         <div className="flex gap-2 flex-wrap justify-around">
           {exploreCuisines?.map((item) => {
             return (
@@ -30,7 +30,7 @@ const Main = () => {
                 />
               </div>
             );
-          })}
+          }): (<div></div>)}
         </div>
       )}
 
