@@ -15,3 +15,12 @@
 .modal-open {
   overflow: hidden;
 }
+
+.test_style {
+  padding: 8px;
+  margin: 18px;
+  font-size: 3em;
+  font-weight: 700;
+  color: aliceblue;
+  background-color: blue;
+}
